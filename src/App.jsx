@@ -6,13 +6,17 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-      <h1 className="text-dark-grayish-cyan uppercase tracking-widest">
-        Spli
-        <br />
-        tter
-      </h1>
-      <BillForm />
-      <Display />
+      <main className="flex flex-col items-center">
+        <h1 className="text-dark-grayish-cyan uppercase tracking-widest">
+          Spli
+          <br />
+          tter
+        </h1>
+        <div className="flex max-w-screen-md">
+          <BillForm />
+          <Display />
+        </div>
+      </main>
       <Footer />
     </>
   );
