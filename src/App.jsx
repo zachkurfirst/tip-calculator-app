@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <main className="flex flex-col items-center">
-        <h1 className="text-dark-grayish-cyan uppercase tracking-widest">
+        <h1 className="uppercase tracking-widest text-dark-grayish-cyan">
           Spli
           <br />
           tter

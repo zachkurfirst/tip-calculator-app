@@ -1,6 +1,6 @@
 const Display = () => {
   return (
-    <div id="display" className="bg-very-dark-cyan rounded-lg p-4">
+    <div id="display" className="rounded-lg bg-very-dark-cyan p-4">
       <div id="results">
         <div id="results-row" className="flex">
           <div>
