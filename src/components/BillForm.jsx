@@ -1,13 +1,16 @@
+// import icons
 import dollarIcon from '../assets/icon-dollar.svg'
 import personIcon from '../assets/icon-person.svg'
 
 const BillForm = () => {
   return (
-    <div id="bill-form" className="flex flex-col gap-8">
+    <div id="bill-form" className="flex flex-col gap-8 w-1/2">
       <div id="bill" className="border-2 border-red-500">
         <label htmlFor="bill">Bill</label>
-        <img src={dollarIcon} aria-hidden="true" />
-        <input type="number" name="bill" id="bill" min="0" placeholder="0" />
+        <div id="bill-amount" className="flex justify-around border-2 border-blue-500">
+          <img src={dollarIcon} aria-hidden="true" />
+          <input type="number" name="bill" id="bill" min="0" placeholder="0" />
+        </div>
       </div>
       <div id="tip" className="border-2 border-blue-500">
         <label htmlFor="tip">Select Tip %</label>

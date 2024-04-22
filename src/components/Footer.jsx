@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer>
+    <footer className="text-xs text-very-dark-cyan fixed right-2 bottom-2">
       Challenge by{" "}
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
         Frontend Mentor
