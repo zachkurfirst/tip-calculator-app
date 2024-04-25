@@ -24,33 +24,81 @@ const BillForm = () => {
             id="bill"
             min="0"
             placeholder="0"
-            className="w-full rounded-sm bg-transparent bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
           />
         </div>
       </div>
-      <div id="tip" className="border-2 border-blue-500">
+      <div id="tip" className="">
         <label htmlFor="tip" className="text-sm text-dark-grayish-cyan">
           Select Tip %
         </label>
-        <div id="tip-choices" className="border-2 border-yellow-400">
-          <label htmlFor="tip5">
-            <input type="radio" id="tip5" name="tip" value="5" />
+        <div
+          id="tip-choices"
+          className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-white sm:grid-cols-3"
+        >
+          <label
+            htmlFor="tip5"
+            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+          >
+            <input
+              type="radio"
+              id="tip5"
+              name="tip"
+              value="5"
+              className="hidden"
+            />
             5%
           </label>
-          <label htmlFor="tip10">
-            <input type="radio" id="tip10" name="tip" value="10" />
+          <label
+            htmlFor="tip10"
+            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+          >
+            <input
+              type="radio"
+              id="tip10"
+              name="tip"
+              value="10"
+              className="hidden"
+            />
             10%
           </label>
-          <label htmlFor="tip15">
-            <input type="radio" id="tip15" name="tip" value="15" />
+          <label
+            htmlFor="tip15"
+            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+          >
+            <input
+              type="radio"
+              id="tip15"
+              name="tip"
+              value="15"
+              className="hidden"
+            />
             15%
           </label>
-          <label htmlFor="tip25">
-            <input type="radio" id="tip25" name="tip" value="25" />
+          <label
+            htmlFor="tip25"
+            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+          >
+            <input
+              type="radio"
+              id="tip25"
+              name="tip"
+              value="25"
+              className="hidden"
+            />
             25%
           </label>
-          <label htmlFor="tip50">
-            <input type="radio" id="tip50" name="tip" value="50" />
+          <label
+            htmlFor="tip50"
+            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+          >
+            <input
+              type="radio"
+              id="tip50"
+              name="tip"
+              value="50"
+              className="hidden"
+            />
             50%
           </label>
           <input
@@ -59,6 +107,8 @@ const BillForm = () => {
             id="tip"
             min="0"
             placeholder="Custom"
+            className="rounded-sm bg-very-light-grayish-cyan pr-4 text-right text-very-dark-cyan placeholder-dark-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            // className="w-full rounded-sm bg-transparent bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
           />
         </div>
       </div>
