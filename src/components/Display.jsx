@@ -1,23 +1,28 @@
 const Display = () => {
   return (
-    <div id="display" className="flex flex-col justify-between rounded-xl bg-very-dark-cyan p-8 w-1/2">
-      <div id="display-results" className="flex flex-col gap-8 mt-4">
-        <div id="display-row" className="flex justify-between items-center">
+    <div
+      id="display"
+      className="flex w-1/2 flex-col justify-between rounded-xl bg-very-dark-cyan p-8"
+    >
+      <div id="display-results" className="mt-4 flex flex-col gap-8">
+        <div id="display-row" className="flex items-center justify-between">
           <div id="display-labels" className="">
-            <p className="text-white text-sm">Tip Amount</p>
-            <p className="text-grayish-cyan text-xs">/ person</p>
+            <p className="text-sm text-white">Tip Amount</p>
+            <p className="text-xs text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-strong-cyan text-4xl">$0.00</p>
+          <p className="text-4xl text-strong-cyan">$0.00</p>
         </div>
-        <div id="display-row" className="flex justify-between items-center">
+        <div id="display-row" className="flex items-center justify-between">
           <div id="display-labels" className="">
-            <p className="text-white text-sm">Total</p>
-            <p className="text-grayish-cyan text-xs">/ person</p>
+            <p className="text-sm text-white">Total</p>
+            <p className="text-xs text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-strong-cyan text-4xl">$0.00</p>
+          <p className="text-4xl text-strong-cyan">$0.00</p>
         </div>
       </div>
-      <button className="bg-strong-cyan text-very-dark-cyan uppercase rounded-md py-2 enabled:hover:bg-light-grayish-cyan text-lg transition-all disabled:opacity-20">Reset</button>
+      <button className="rounded-md bg-strong-cyan py-2 text-lg uppercase text-very-dark-cyan transition-all enabled:hover:bg-light-grayish-cyan disabled:opacity-20">
+        Reset
+      </button>
     </div>
   );
 };
