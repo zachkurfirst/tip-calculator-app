@@ -112,15 +112,17 @@ const BillForm = () => {
           />
         </div>
       </div>
-      <div id="people" className="border-2 border-purple-500">
-        <div id="people-label" className="border-2 border-green-500 text-sm">
+      <div id="people" className="">
+        <div id="people-label" className="flex justify-between text-sm">
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
-          <p className="text-red-500">Can&rsquo;t be zero</p>
+          <p className="text-red-500 hidden">Can&rsquo;t be zero</p>
         </div>
-        <img src={personIcon} aria-hidden="true" />
-        <input type="number" name="" id="" className="text-right" />
+        <div id="people-container" className="relative mt-1 flex items-center shadow-sm">
+          <img src={personIcon} aria-hidden="true" className="absolute left-4" />
+          <input type="number" name="" id="" placeholder="0" min="1" max="14" className="w-full bg-very-light-grayish-cyan rounded-sm py-1 text-right pr-4 text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan" />
+        </div>
       </div>
     </div>
   );
