@@ -4,7 +4,7 @@ import personIcon from "../assets/icon-person.svg";
 
 const BillForm = () => {
   return (
-    <div id="bill-form" className="flex w-1/2 flex-col gap-8">
+    <div id="bill-form" className="flex w-full sm:w-[48%] flex-col gap-8">
       <div id="bill">
         <label htmlFor="bill" className="text-sm text-dark-grayish-cyan">
           Bill
@@ -34,7 +34,7 @@ const BillForm = () => {
         </label>
         <div
           id="tip-choices"
-          className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-white sm:grid-cols-3"
+          className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-white md:grid-cols-3"
         >
           <label
             htmlFor="tip5"
@@ -107,8 +107,7 @@ const BillForm = () => {
             id="tip"
             min="0"
             placeholder="Custom"
-            className="rounded-sm bg-very-light-grayish-cyan pr-4 text-right text-very-dark-cyan placeholder-dark-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
-            // className="w-full rounded-sm bg-transparent bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            className="rounded-sm bg-very-light-grayish-cyan px-4 text-right text-very-dark-cyan placeholder-dark-grayish-cyan placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-strong-cyan placeholder:text-center"
           />
         </div>
       </div>

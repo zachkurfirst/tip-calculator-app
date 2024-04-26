@@ -2,7 +2,7 @@ const Display = () => {
   return (
     <div
       id="display"
-      className="flex w-1/2 flex-col justify-between rounded-xl bg-very-dark-cyan p-8"
+      className="flex w-full sm:w-[48%] flex-col justify-between rounded-xl bg-very-dark-cyan p-6 sm:p-8 gap-10"
     >
       <div id="display-results" className="mt-4 flex flex-col gap-8">
         <div id="display-row" className="flex items-center justify-between">
