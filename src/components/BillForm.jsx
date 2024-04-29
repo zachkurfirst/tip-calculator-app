@@ -4,7 +4,7 @@ import personIcon from "../assets/icon-person.svg";
 
 const BillForm = () => {
   return (
-    <div id="bill-form" className="flex w-full sm:w-[48%] flex-col gap-8">
+    <div id="bill-form" className="flex w-full flex-col gap-8 sm:w-[48%]">
       <div id="bill">
         <label htmlFor="bill" className="text-sm text-dark-grayish-cyan">
           Bill
@@ -16,7 +16,7 @@ const BillForm = () => {
           <img
             src={dollarIcon}
             aria-hidden="true"
-            className="absolute left-4"
+            className="pointer-events-none absolute left-4"
           />
           <input
             type="number"
@@ -24,7 +24,7 @@ const BillForm = () => {
             id="bill"
             min="0"
             placeholder="0"
-            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
           />
         </div>
       </div>
@@ -34,11 +34,11 @@ const BillForm = () => {
         </label>
         <div
           id="tip-choices"
-          className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-white md:grid-cols-3"
+          className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-very-light-grayish-cyan sm:grid-cols-3"
         >
           <label
             htmlFor="tip5"
-            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -51,7 +51,7 @@ const BillForm = () => {
           </label>
           <label
             htmlFor="tip10"
-            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -64,7 +64,7 @@ const BillForm = () => {
           </label>
           <label
             htmlFor="tip15"
-            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -77,7 +77,7 @@ const BillForm = () => {
           </label>
           <label
             htmlFor="tip25"
-            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -90,7 +90,7 @@ const BillForm = () => {
           </label>
           <label
             htmlFor="tip50"
-            className="cursor-pointer rounded-sm bg-very-dark-cyan py-1 hover:bg-strong-cyan hover:text-very-dark-cyan"
+            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -107,7 +107,7 @@ const BillForm = () => {
             id="tip"
             min="0"
             placeholder="Custom"
-            className="rounded-sm bg-very-light-grayish-cyan px-4 text-right text-very-dark-cyan placeholder-dark-grayish-cyan placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-strong-cyan placeholder:text-center"
+            className="rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg"
           />
         </div>
       </div>
@@ -116,7 +116,7 @@ const BillForm = () => {
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
-          <p className="hidden text-red-500">Can&rsquo;t be zero</p>
+          <p id="error" className="text-red-400"></p>
         </div>
         <div
           id="people-container"
@@ -125,7 +125,7 @@ const BillForm = () => {
           <img
             src={personIcon}
             aria-hidden="true"
-            className="absolute left-4"
+            className="pointer-events-none absolute left-4"
           />
           <input
             type="number"
@@ -134,7 +134,7 @@ const BillForm = () => {
             placeholder="0"
             min="1"
             max="14"
-            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
           />
         </div>
       </div>
