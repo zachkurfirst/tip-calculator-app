@@ -2,7 +2,12 @@
 import dollarIcon from "../assets/icon-dollar.svg";
 import personIcon from "../assets/icon-person.svg";
 
-const BillForm = () => {
+const BillForm = ({
+  billAmt,
+  handleBillAmtInput,
+  blockInvalidChar,
+  handleSelectedTip,
+}) => {
   return (
     <div id="bill-form" className="flex w-full flex-col gap-8 sm:w-[48%]">
       <div id="bill">
@@ -25,6 +30,9 @@ const BillForm = () => {
             min="0"
             placeholder="0"
             className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            value={billAmt}
+            onChange={handleBillAmtInput}
+            onKeyDown={blockInvalidChar}
           />
         </div>
       </div>
