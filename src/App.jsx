@@ -11,19 +11,28 @@ const App = () => {
   const [billAmt, setBillAmt] = useState("");
   const [isTipSelected, setIsTipSelected] = useState(false);
   const [tip, setTip] = useState(0);
-  const [people, setPeople] = useState(0);
+  const [people, setPeople] = useState("");
 
+  // Event handler for bill input field
   const handleBillAmtInput = (e) => {
     console.log(e.target.value);
     setBillAmt(e.target.value);
   };
 
+  // Prevent input of certain characters
   const blockInvalidChar = (e) =>
     ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
+  // Event handler for tip selection
   const handleSelectedTip = (e) => {
     console.log(e.target.value);
   };
+
+    // Event handler for bill input field
+    const handlePeopleInput = (e) => {
+      console.log(e.target.value);
+      setPeople(e.target.value);
+    };
 
   return (
     <>
@@ -37,7 +46,10 @@ const App = () => {
             billAmt={billAmt}
             handleBillAmtInput={handleBillAmtInput}
             blockInvalidChar={blockInvalidChar}
+            tip={tip}
             handleSelectedTip={handleSelectedTip}
+            people={people}
+            handlePeopleInput={handlePeopleInput}
           />
           <Display />
         </div>
