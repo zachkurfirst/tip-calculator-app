@@ -9,11 +9,11 @@ const BillForm = ({
   tip,
   handleSelectedTip,
   people,
-  handlePeopleInput
+  handlePeopleInput,
 }) => {
   return (
     <div id="bill-form" className="flex w-full flex-col gap-8 sm:w-[48%]">
-      <div id="bill">
+      <div id="bill-section">
         <label htmlFor="bill" className="text-sm text-dark-grayish-cyan">
           Bill
         </label>
@@ -39,7 +39,7 @@ const BillForm = ({
           />
         </div>
       </div>
-      <div id="tip" className="">
+      <div id="tip-section">
         <label htmlFor="tip" className="text-sm text-dark-grayish-cyan">
           Select Tip %
         </label>
@@ -122,13 +122,13 @@ const BillForm = ({
           />
         </div>
       </div>
-      <div id="people" className="">
+      <div id="people-section" className="">
         <div id="people-label" className="flex justify-between text-sm">
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
           <p id="error" className="text-red-400">
-            {/* error handling */}
+            {/* NEXT UP: ERROR HANDLING */}
             {}
           </p>
         </div>
@@ -143,19 +143,27 @@ const BillForm = ({
           />
           <input
             type="number"
-            name=""
-            id=""
+            name="people"
+            id="people"
             placeholder="0"
             min="1"
             max="14"
-            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-2 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
             value={people}
             onChange={handlePeopleInput}
             onKeyDown={blockInvalidChar}
+            // list="suggestions"
           />
+          {/* <datalist id="suggestions">
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+          </datalist> */}
         </div>
       </div>
     </div>
   );
 };
+
 export default BillForm;
