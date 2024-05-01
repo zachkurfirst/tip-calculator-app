@@ -5,18 +5,27 @@ import personIcon from "../assets/icon-person.svg";
 const BillForm = ({
   billAmt,
   handleBillAmtInput,
-  blockInvalidChar,
+  blockInvalidBillChar,
+  showBillAmtError,
   tip,
   handleSelectedTip,
   people,
   handlePeopleInput,
+  blockInvalidPeopleChar,
+  showPeopleError,
 }) => {
   return (
     <div id="bill-form" className="flex w-full flex-col gap-8 sm:w-[48%]">
       <div id="bill-section">
-        <label htmlFor="bill" className="text-sm text-dark-grayish-cyan">
-          Bill
-        </label>
+        <div id="bill-label" className="flex justify-between text-sm">
+          <label htmlFor="bill" className=" text-dark-grayish-cyan">
+            Bill
+          </label>
+          <p id="error" className="text-red-400">
+            {/* NEXT UP: ERROR HANDLING */}
+            {showBillAmtError && "Only 2 decimal places!"}
+          </p>
+        </div>
         <div
           id="bill-container"
           className="relative mt-1 flex items-center shadow-sm"
@@ -31,11 +40,12 @@ const BillForm = ({
             name="bill"
             id="bill"
             min="0"
+            step=".01"
             placeholder="0"
             className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
             value={billAmt}
             onChange={handleBillAmtInput}
-            onKeyDown={blockInvalidChar}
+            onKeyDown={blockInvalidBillChar}
           />
         </div>
       </div>
@@ -122,14 +132,14 @@ const BillForm = ({
           />
         </div>
       </div>
-      <div id="people-section" className="">
+      <div id="people-section">
         <div id="people-label" className="flex justify-between text-sm">
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
           <p id="error" className="text-red-400">
             {/* NEXT UP: ERROR HANDLING */}
-            {}
+            {showPeopleError && "Can't be zero"}
           </p>
         </div>
         <div
@@ -148,10 +158,10 @@ const BillForm = ({
             placeholder="0"
             min="1"
             max="14"
-            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-2 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
+            className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
             value={people}
             onChange={handlePeopleInput}
-            onKeyDown={blockInvalidChar}
+            onKeyDown={blockInvalidPeopleChar}
             // list="suggestions"
           />
           {/* <datalist id="suggestions">
