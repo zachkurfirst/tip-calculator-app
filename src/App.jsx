@@ -11,7 +11,7 @@ const App = () => {
   const [billAmt, setBillAmt] = useState("");
   const [showBillAmtError, setShowBillAmtError] = useState(false);
   const [isTipSelected, setIsTipSelected] = useState(false);
-  const [tip, setTip] = useState(0);
+  const [selectedTip, setSelectedTip] = useState(0);
   const [people, setPeople] = useState("");
   const [showPeopleError, setShowPeopleError] = useState(false);
 
@@ -19,8 +19,9 @@ const App = () => {
   const handleBillAmtInput = (e) => {
     const input = e.target.value;
     console.log(input);
-    // regex for max 2 decimal places
-    if (input.match(/^(\d*\.{0,1}\d{0,2}$)/)) {
+    const regex = /^(\d*\.{0,1}\d{0,2}$)/;
+    // .test() method: compare regex for no more than 2 decimal places with input
+    if (regex.test(input)) {
       setBillAmt(input);
       setShowBillAmtError(false);
     } else {
@@ -35,18 +36,21 @@ const App = () => {
   // Event handler for tip selection
   const handleSelectedTip = (e) => {
     console.log(e.target.value);
+    setSelectedTip(e.target.value);
+    // console.log('selectedTip:', selectedTip)
+    setIsTipSelected(true);
   };
 
   // Event handler for bill input field
   const handlePeopleInput = (e) => {
     const input = e.target.value;
     console.log(input);
-    // regex for empty string or int 1-14
-    if (input.match(/^$|^(?:[1-9]|1[0-4])$/)) {
+    const regex = /^$|^(?:[1-9]|1[0-4])$/;
+    // .test() method: compare regex for empty string or int 1-14 with input
+    if (regex.test(input)) {
       setPeople(input);
       setShowPeopleError(false);
     } else {
-      // setPeople(input);
       setShowPeopleError(true);
     }
   };
@@ -67,7 +71,7 @@ const App = () => {
             handleBillAmtInput={handleBillAmtInput}
             blockInvalidBillChar={blockInvalidBillChar}
             showBillAmtError={showBillAmtError}
-            tip={tip}
+            selectedTip={selectedTip}
             handleSelectedTip={handleSelectedTip}
             people={people}
             handlePeopleInput={handlePeopleInput}

@@ -7,7 +7,7 @@ const BillForm = ({
   handleBillAmtInput,
   blockInvalidBillChar,
   showBillAmtError,
-  tip,
+  selectedTip,
   handleSelectedTip,
   people,
   handlePeopleInput,
@@ -23,7 +23,7 @@ const BillForm = ({
           </label>
           <p id="error" className="text-red-400">
             {/* NEXT UP: ERROR HANDLING */}
-            {showBillAmtError && "Only 2 decimal places!"}
+            {showBillAmtError && "Only 2 decimal places"}
           </p>
         </div>
         <div
@@ -65,7 +65,9 @@ const BillForm = ({
               type="radio"
               id="tip5"
               name="tip"
-              value="5"
+              value=".05"
+              checked={selectedTip === ".05"}
+              onChange={handleSelectedTip}
               className="hidden"
             />
             5%
@@ -78,7 +80,9 @@ const BillForm = ({
               type="radio"
               id="tip10"
               name="tip"
-              value="10"
+              value=".1"
+              checked={selectedTip === ".1"}
+              onChange={handleSelectedTip}
               className="hidden"
             />
             10%
@@ -91,7 +95,9 @@ const BillForm = ({
               type="radio"
               id="tip15"
               name="tip"
-              value="15"
+              value=".15"
+              checked={selectedTip === ".15"}
+              onChange={handleSelectedTip}
               className="hidden"
             />
             15%
@@ -104,7 +110,9 @@ const BillForm = ({
               type="radio"
               id="tip25"
               name="tip"
-              value="25"
+              value=".25"
+              checked={selectedTip === ".25"}
+              onChange={handleSelectedTip}
               className="hidden"
             />
             25%
@@ -117,7 +125,9 @@ const BillForm = ({
               type="radio"
               id="tip50"
               name="tip"
-              value="50"
+              value=".5"
+              checked={selectedTip === ".5"}
+              onChange={handleSelectedTip}
               className="hidden"
             />
             50%
@@ -128,6 +138,8 @@ const BillForm = ({
             id="tip"
             min="0"
             placeholder="Custom"
+            // value={selectedTip}
+            // onChange=
             className="rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg"
           />
         </div>
