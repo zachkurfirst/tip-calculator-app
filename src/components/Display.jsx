@@ -1,4 +1,4 @@
-const Display = () => {
+const Display = ({tipAmt}) => {
   return (
     <div
       id="display"

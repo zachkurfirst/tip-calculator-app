@@ -10,15 +10,19 @@ import logo from "./assets/logo.svg";
 const App = () => {
   const [billAmt, setBillAmt] = useState("");
   const [showBillAmtError, setShowBillAmtError] = useState(false);
+
   const [isTipSelected, setIsTipSelected] = useState(false);
   const [selectedTip, setSelectedTip] = useState(0);
+  const [tipAmt, setTipAmt] = useState(0);
+  const [totalAmt, setTotalAmt] = useState(0);
+
   const [people, setPeople] = useState("");
   const [showPeopleError, setShowPeopleError] = useState(false);
 
   // Event handler for bill input field
   const handleBillAmtInput = (e) => {
     const input = e.target.value;
-    console.log(input);
+    // console.log(input);
     const regex = /^(\d*\.{0,1}\d{0,2}$)/;
     // .test() method: compare regex for no more than 2 decimal places with input
     if (regex.test(input)) {
@@ -40,6 +44,10 @@ const App = () => {
     // console.log('selectedTip:', selectedTip)
     setIsTipSelected(true);
   };
+  
+  const calculateTip = () => {
+    setTipAmt(billAmt / people) * selectedTip;
+  };
 
   // Event handler for bill input field
   const handlePeopleInput = (e) => {
@@ -50,10 +58,16 @@ const App = () => {
     if (regex.test(input)) {
       setPeople(input);
       setShowPeopleError(false);
+      calculateTip();
+      console.log("billAmt:", billAmt)
+      console.log("people:", people)
+      console.log("selectedTip:", selectedTip)
+      console.log("tipAmt:", tipAmt)
     } else {
       setShowPeopleError(true);
     }
   };
+
 
   const blockInvalidPeopleChar = (e) =>
     ["e", "E", "+", "-", "."].includes(e.key) && e.preventDefault();
@@ -77,6 +91,7 @@ const App = () => {
             handlePeopleInput={handlePeopleInput}
             blockInvalidPeopleChar={blockInvalidPeopleChar}
             showPeopleError={showPeopleError}
+            tipAmt={tipAmt}
           />
           <Display />
         </div>
