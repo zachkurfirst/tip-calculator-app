@@ -4,16 +4,89 @@ import personIcon from "../assets/icon-person.svg";
 
 const BillForm = ({
   billAmt,
-  handleBillAmtInput,
-  blockInvalidBillChar,
+  setBillAmt,
   showBillAmtError,
-  selectedTip,
-  handleSelectedTip,
+  setShowBillAmtError,
+  isTipSelected, // ?: maybe use this state to unselect tip if click again
+  setIsTipSelected,
+  tip,
+  setTip,
+  isCustomTip,
+  setIsCustomTip,
   people,
-  handlePeopleInput,
-  blockInvalidPeopleChar,
+  setPeople,
   showPeopleError,
+  setShowPeopleError,
 }) => {
+  // Event handler for bill input field
+  const handleBillAmtInput = (e) => {
+    const input = e.target.value;
+    // console.log(input);
+    const regex = /^(\d*\.{0,1}\d{0,2}$)/;
+    // .test() method: compare regex for no more than 2 decimal places with input
+    if (regex.test(input)) {
+      setBillAmt(+input);
+      setShowBillAmtError(false);
+    } else {
+      setShowBillAmtError(true);
+    }
+  };
+
+  // Prevent input of certain characters
+  const blockInvalidBillChar = (e) =>
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
+
+  // Event handler for tip selection
+  const handleSelectedTip = (e) => {
+    console.log(e.target.value);
+    setTip(+e.target.value);
+    // console.log('tip:', tip)
+    setIsCustomTip(false);
+    setIsTipSelected(true);
+  };
+
+  const handleCustomTip = (e) => {
+    const input = e.target.value;
+    if (input > 0) {
+      setIsCustomTip(true);
+      setIsTipSelected(false);
+      setTip(+e.target.value);
+    } else {
+      setIsCustomTip(false);
+      setTip(0);
+    }
+  };
+
+  // Prevent input of certain characters
+  const blockInvalidTipChar = (e) =>
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
+
+  // Event handler for bill input field
+  const handlePeopleInput = (e) => {
+    const input = e.target.value;
+    console.log(input);
+    const regex = /^$|^(?:[1-9]|1[0-4])$/;
+    // .test() method: compare regex for empty string or int 1-14 with input
+    if (regex.test(input)) {
+      if (input > 0) {
+        setPeople(+input);
+      } else {
+        setPeople(input);
+      }
+      setShowPeopleError(false);
+      // calculateTip();
+      // console.log("billAmt:", billAmt);
+      // console.log("people:", people);
+      // console.log("tip:", tip);
+      // console.log("tipAmt:", tipAmt);
+    } else {
+      setShowPeopleError(true);
+    }
+  };
+
+  const blockInvalidPeopleChar = (e) =>
+    ["e", "E", "+", "-", "."].includes(e.key) && e.preventDefault();
+
   return (
     <div id="bill-form" className="flex w-full flex-col gap-8 sm:w-[48%]">
       <div id="bill-section">
@@ -65,8 +138,8 @@ const BillForm = ({
               type="radio"
               id="tip5"
               name="tip"
-              value=".05"
-              checked={selectedTip === ".05"}
+              value="5"
+              checked={tip === 5}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -80,8 +153,8 @@ const BillForm = ({
               type="radio"
               id="tip10"
               name="tip"
-              value=".1"
-              checked={selectedTip === ".1"}
+              value="10"
+              checked={tip === 10}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -95,8 +168,8 @@ const BillForm = ({
               type="radio"
               id="tip15"
               name="tip"
-              value=".15"
-              checked={selectedTip === ".15"}
+              value="15"
+              checked={tip === 15}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -110,8 +183,8 @@ const BillForm = ({
               type="radio"
               id="tip25"
               name="tip"
-              value=".25"
-              checked={selectedTip === ".25"}
+              value="25"
+              checked={tip === 25}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -125,8 +198,8 @@ const BillForm = ({
               type="radio"
               id="tip50"
               name="tip"
-              value=".5"
-              checked={selectedTip === ".5"}
+              value="50"
+              checked={tip === 50}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -138,8 +211,9 @@ const BillForm = ({
             id="tip"
             min="0"
             placeholder="Custom"
-            // value={selectedTip}
-            // onChange=
+            value={isCustomTip ? tip : ""}
+            onChange={handleCustomTip}
+            onKeyDown={blockInvalidTipChar}
             className="rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg"
           />
         </div>
