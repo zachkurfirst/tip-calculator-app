@@ -74,7 +74,7 @@ const App = () => {
 
   return (
     <>
-      <main className="flex h-dvh flex-col items-center gap-12">
+      <main className="flex flex-col items-center gap-12 mb-10">
         <img src={logo} alt="Splitter logo" className="mt-12" />
         <div
           id="white-container"

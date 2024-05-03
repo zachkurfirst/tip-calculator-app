@@ -11,6 +11,14 @@ export default {
         "light-grayish-cyan": "hsl(185, 41%, 84%)",
         "very-light-grayish-cyan": "hsl(189, 41%, 97%)",
       },
+      fontSize: {
+        xxs: [
+          "0.6rem",
+          {
+            lineHeight: "1rem",
+          },
+        ],
+      },
     },
     fontFamily: {
       spacemono: ["Space Mono", "monospace"],
