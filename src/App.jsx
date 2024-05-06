@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import BillForm from "./components/BillForm";
 import Display from "./components/Display";
@@ -11,21 +11,35 @@ const App = () => {
   const [billAmt, setBillAmt] = useState("");
   const [showBillAmtError, setShowBillAmtError] = useState(false);
 
-  const [isTipSelected, setIsTipSelected] = useState(false);
   const [tip, setTip] = useState(0);
+  const [isTipSelected, setIsTipSelected] = useState(false);
   const [isCustomTip, setIsCustomTip] = useState(false);
 
   const [people, setPeople] = useState("");
   const [showPeopleError, setShowPeopleError] = useState(false);
 
-  const [tipAmt, setTipAmt] = useState(0);
-  // TODO: function for calculateTotal
-  const [totalAmt, setTotalAmt] = useState(0);
+  // Display Totals
+  const [tipPP, setTipPP] = useState(0);
+  const [totalPP, setTotalPP] = useState(0);
 
-  // TODO: move function to either billForm
-  const calculateTip = () => {
-    setTipAmt(billAmt / people) * tip;
+  const handleResetBtn = () => {
+    setBillAmt("");
+    setTip(0);
+    setPeople("");
+    setTipPP(0);
+    setTotalPP(0);
   };
+
+  // run useEffect when any of the 3 form values update
+  useEffect(() => {
+    console.table({ billAmt, tip, people });
+    // if entries exist for all 3 fields
+    if (billAmt > 0 && tip > 0 && people > 0) {
+      setTipPP((billAmt * (tip / 100)) / people);
+      setTotalPP(billAmt / people + tipPP);
+      console.log({ tipPP, totalPP });
+    }
+  }, [billAmt, people, tip, tipPP, totalPP]);
 
   return (
     <>
@@ -40,10 +54,10 @@ const App = () => {
             setBillAmt={setBillAmt}
             showBillAmtError={showBillAmtError}
             setShowBillAmtError={setShowBillAmtError}
-            isTipSelected={isTipSelected}
-            setIsTipSelected={setIsTipSelected}
             tip={tip}
             setTip={setTip}
+            isTipSelected={isTipSelected}
+            setIsTipSelected={setIsTipSelected}
             isCustomTip={isCustomTip}
             setIsCustomTip={setIsCustomTip}
             people={people}
@@ -51,7 +65,11 @@ const App = () => {
             showPeopleError={showPeopleError}
             setShowPeopleError={setShowPeopleError}
           />
-          <Display tipAmt={tipAmt} />
+          <Display
+            tipPP={tipPP}
+            totalPP={totalPP}
+            handleResetBtn={handleResetBtn}
+          />
         </div>
       </main>
       <Footer />

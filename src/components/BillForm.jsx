@@ -47,7 +47,18 @@ const BillForm = ({
 
   const handleCustomTip = (e) => {
     const input = e.target.value;
-    if (input > 0) {
+    if (
+      input === "5" ||
+      input === "10" ||
+      input === "15" ||
+      input === "25" ||
+      input === "50"
+    ) {
+      console.log("This tip value exists!");
+      setIsCustomTip(true);
+      setIsTipSelected(true);
+      setTip(+e.target.value);
+    } else if (input > 0) {
       setIsCustomTip(true);
       setIsTipSelected(false);
       setTip(+e.target.value);
@@ -131,12 +142,12 @@ const BillForm = ({
           className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-very-light-grayish-cyan sm:grid-cols-3"
         >
           <label
-            htmlFor="tip5"
+            htmlFor="tip1"
             className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
-              id="tip5"
+              id="tip1"
               name="tip"
               value="5"
               checked={tip === 5}
@@ -146,12 +157,12 @@ const BillForm = ({
             5%
           </label>
           <label
-            htmlFor="tip10"
+            htmlFor="tip2"
             className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
-              id="tip10"
+              id="tip2"
               name="tip"
               value="10"
               checked={tip === 10}
@@ -161,12 +172,12 @@ const BillForm = ({
             10%
           </label>
           <label
-            htmlFor="tip15"
+            htmlFor="tip3"
             className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
-              id="tip15"
+              id="tip3"
               name="tip"
               value="15"
               checked={tip === 15}
@@ -176,12 +187,12 @@ const BillForm = ({
             15%
           </label>
           <label
-            htmlFor="tip25"
+            htmlFor="tip4"
             className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
-              id="tip25"
+              id="tip4"
               name="tip"
               value="25"
               checked={tip === 25}
@@ -191,12 +202,12 @@ const BillForm = ({
             25%
           </label>
           <label
-            htmlFor="tip50"
+            htmlFor="tip5"
             className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
-              id="tip50"
+              id="tip5"
               name="tip"
               value="50"
               checked={tip === 50}

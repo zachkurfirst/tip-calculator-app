@@ -1,4 +1,11 @@
-const Display = ({ tipAmt }) => {
+const Display = ({ tipPP, totalPP, handleResetBtn }) => {
+  // convert display amounts to USD currency
+  const USD = (amt) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(amt);
+
   return (
     <div
       id="display"
@@ -10,17 +17,22 @@ const Display = ({ tipAmt }) => {
             <p className="text-sm text-white">Tip Amount</p>
             <p className="text-xs text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-4xl text-strong-cyan">${tipAmt || "0.00"}</p>
+          <p className="text-4xl text-strong-cyan">{USD(tipPP ? tipPP : 0)}</p>
         </div>
         <div id="display-row" className="flex items-center justify-between">
           <div id="display-labels" className="">
             <p className="text-sm text-white">Total</p>
             <p className="text-xs text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-4xl text-strong-cyan">$0.00</p>
+          <p className="text-4xl text-strong-cyan">
+            {USD(totalPP ? totalPP : 0)}
+          </p>
         </div>
       </div>
-      <button className="rounded-md bg-strong-cyan py-2 text-lg uppercase text-very-dark-cyan transition-all enabled:hover:bg-light-grayish-cyan disabled:opacity-20">
+      <button
+        onClick={handleResetBtn}
+        className="rounded-md bg-strong-cyan py-2 text-lg uppercase text-very-dark-cyan transition-all enabled:hover:bg-light-grayish-cyan disabled:opacity-20"
+      >
         Reset
       </button>
     </div>
