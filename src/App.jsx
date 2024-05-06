@@ -33,11 +33,14 @@ const App = () => {
   // run useEffect when any of the 3 form values update
   useEffect(() => {
     console.table({ billAmt, tip, people });
-    // if entries exist for all 3 fields
-    if (billAmt > 0 && tip > 0 && people > 0) {
+    // if entries exist for billAmt and people
+    if (billAmt > 0 && people > 0) {
       setTipPP((billAmt * (tip / 100)) / people);
       setTotalPP(billAmt / people + tipPP);
       console.log({ tipPP, totalPP });
+    } else if (billAmt == 0 || people == 0) {
+      setTipPP(0);
+      setTotalPP(0);
     }
   }, [billAmt, people, tip, tipPP, totalPP]);
 

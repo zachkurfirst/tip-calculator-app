@@ -25,7 +25,11 @@ const BillForm = ({
     const regex = /^(\d*\.{0,1}\d{0,2}$)/;
     // .test() method: compare regex for no more than 2 decimal places with input
     if (regex.test(input)) {
-      setBillAmt(+input);
+      if (input > 0) {
+        setBillAmt(+input);
+      } else {
+        setBillAmt(input);
+      }
       setShowBillAmtError(false);
     } else {
       setShowBillAmtError(true);

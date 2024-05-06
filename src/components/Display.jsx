@@ -6,6 +6,9 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
       currency: "USD",
     }).format(amt);
 
+    // if billAmt = 0 or people = 0, reset display PP totals
+    
+
   return (
     <div
       id="display"
