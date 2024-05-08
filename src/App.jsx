@@ -11,7 +11,7 @@ const App = () => {
   const [billAmt, setBillAmt] = useState("");
   const [showBillAmtError, setShowBillAmtError] = useState(false);
 
-  const [tip, setTip] = useState(0);
+  const [tip, setTip] = useState("");
   const [isTipSelected, setIsTipSelected] = useState(false);
   const [isCustomTip, setIsCustomTip] = useState(false);
 
@@ -24,10 +24,8 @@ const App = () => {
 
   const handleResetBtn = () => {
     setBillAmt("");
-    setTip(0);
+    setTip("");
     setPeople("");
-    setTipPP(0);
-    setTotalPP(0);
   };
 
   // run useEffect when any of the 3 form values update
@@ -41,6 +39,7 @@ const App = () => {
     } else if (billAmt == 0 || people == 0) {
       setTipPP(0);
       setTotalPP(0);
+      console.log('reset display totals')
     }
   }, [billAmt, people, tip, tipPP, totalPP]);
 

@@ -20,7 +20,7 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
             <p className="text-sm text-white">Tip Amount</p>
             <p className="text-xs text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-4xl text-strong-cyan">{USD(tipPP ? tipPP : 0)}</p>
+          <p className="text-4xl text-strong-cyan">{USD(tipPP)}</p>
         </div>
         <div id="display-row" className="flex items-center justify-between">
           <div id="display-labels" className="">
@@ -28,7 +28,7 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
             <p className="text-xs text-grayish-cyan">/ person</p>
           </div>
           <p className="text-4xl text-strong-cyan">
-            {USD(totalPP ? totalPP : 0)}
+            {USD(totalPP)}
           </p>
         </div>
       </div>
