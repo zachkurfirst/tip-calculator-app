@@ -35,6 +35,7 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
       <button
         onClick={handleResetBtn}
         className="rounded-md bg-strong-cyan py-2 text-lg uppercase text-very-dark-cyan transition-all enabled:hover:bg-light-grayish-cyan disabled:opacity-20"
+        disabled={totalPP ? false : true}
       >
         Reset
       </button>
