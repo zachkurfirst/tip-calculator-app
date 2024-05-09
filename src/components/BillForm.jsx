@@ -76,26 +76,22 @@ const BillForm = ({
   const blockInvalidTipChar = (e) =>
     ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
-  // Event handler for bill input field
+  // Event handler for people input field
   const handlePeopleInput = (e) => {
     const input = e.target.value;
     console.log(input);
-    const regex = /^$|^(?:[1-9]|1[0-4])$/;
-    // .test() method: compare regex for empty string or int 1-14 with input
-    if (regex.test(input)) {
-      if (input > 0) {
-        setPeople(+input);
+    if (input === "") {
+      setPeople("");
+      setShowPeopleError(false);
+    } else {
+      const input = +e.target.value;
+      if (input === 0) {
+        setPeople(input);
+        setShowPeopleError(true);
       } else {
         setPeople(input);
+        setShowPeopleError(false);
       }
-      setShowPeopleError(false);
-      // calculateTip();
-      // console.log("billAmt:", billAmt);
-      // console.log("people:", people);
-      // console.log("tip:", tip);
-      // console.log("tipAmt:", tipAmt);
-    } else {
-      setShowPeopleError(true);
     }
   };
 
@@ -258,19 +254,11 @@ const BillForm = ({
             id="people"
             placeholder="0"
             min="1"
-            max="14"
             className="w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan"
             value={people}
             onChange={handlePeopleInput}
             onKeyDown={blockInvalidPeopleChar}
-            // list="suggestions"
           />
-          {/* <datalist id="suggestions">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
-          </datalist> */}
         </div>
       </div>
     </div>

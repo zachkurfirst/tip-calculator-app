@@ -30,6 +30,7 @@ const App = () => {
 
   // run useEffect when any of the 3 form values update
   useEffect(() => {
+    console.log('render app')
     console.table({ billAmt, tip, people });
     // if entries exist for billAmt and people
     if (billAmt > 0 && people > 0) {
