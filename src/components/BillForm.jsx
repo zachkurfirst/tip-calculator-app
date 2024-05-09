@@ -7,7 +7,7 @@ const BillForm = ({
   setBillAmt,
   showBillAmtError,
   setShowBillAmtError,
-  isTipSelected, // ?: maybe use this state to unselect tip if click again
+  isTipSelected, // ?: maybe use this state to unselect tip if click again or remove
   setIsTipSelected,
   tip,
   setTip,
@@ -52,24 +52,28 @@ const BillForm = ({
 
   const handleCustomTip = (e) => {
     const input = e.target.value;
-    if (
-      input === "5" ||
-      input === "10" ||
-      input === "15" ||
-      input === "25" ||
-      input === "50"
-    ) {
-      console.log("This tip value exists!");
-      setIsCustomTip(true);
-      setIsTipSelected(true);
-      setTip(+e.target.value);
-    } else if (input > 0) {
-      setIsCustomTip(true);
-      setIsTipSelected(false);
-      setTip(+e.target.value);
-    } else {
+    // account for empty string and delete input
+    if (input === "") {
+      setTip("");
       setIsCustomTip(false);
-      setTip(0);
+      setIsTipSelected(false);
+    } else {
+      if (
+        input === "5" ||
+        input === "10" ||
+        input === "15" ||
+        input === "25" ||
+        input === "50"
+      ) {
+        console.log("This tip value exists!");
+        setIsCustomTip(true);
+        setIsTipSelected(true);
+        setTip(+e.target.value);
+      } else {
+        setIsCustomTip(true);
+        setIsTipSelected(false);
+        setTip(+e.target.value);
+      }
     }
   };
 
@@ -81,6 +85,7 @@ const BillForm = ({
   const handlePeopleInput = (e) => {
     const input = e.target.value;
     console.log(input);
+    // account for empty string and delete input
     if (input === "") {
       setPeople("");
       setShowPeopleError(false);
@@ -226,7 +231,7 @@ const BillForm = ({
               value={isCustomTip ? tip : ""}
               onChange={handleCustomTip}
               onKeyDown={blockInvalidTipChar}
-              className="rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg w-full"
+              className="w-full rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg"
             />
           </label>
         </div>
