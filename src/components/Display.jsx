@@ -4,10 +4,7 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
     new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
-    }).format(amt);
-
-    // if billAmt = 0 or people = 0, reset display PP totals
-    
+    }).format(amt);    
 
   return (
     <div
@@ -35,6 +32,7 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
       <button
         onClick={handleResetBtn}
         className="rounded-md bg-strong-cyan py-2 text-lg uppercase text-very-dark-cyan transition-all enabled:hover:bg-light-grayish-cyan disabled:opacity-20"
+        // if total exists, enable reset button
         disabled={totalPP ? false : true}
       >
         Reset

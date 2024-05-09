@@ -22,8 +22,9 @@ const BillForm = ({
   const handleBillAmtInput = (e) => {
     const input = e.target.value;
     // console.log(input);
+    // regex to prevent input of more than 2 decimal places
     const regex = /^(\d*\.{0,1}\d{0,2}$)/;
-    // .test() method: compare regex for no more than 2 decimal places with input
+    // .test() method: compare regex with input and return boolean
     if (regex.test(input)) {
       if (input > 0) {
         setBillAmt(+input);
@@ -106,7 +107,6 @@ const BillForm = ({
             Bill
           </label>
           <p id="error" className="text-red-400">
-            {/* NEXT UP: ERROR HANDLING */}
             {showBillAmtError && "Only 2 decimal places"}
           </p>
         </div>
@@ -134,7 +134,7 @@ const BillForm = ({
         </div>
       </div>
       <div id="tip-section">
-        <label htmlFor="tip" className="text-sm text-dark-grayish-cyan">
+        <label htmlFor="tip1" className="text-sm text-dark-grayish-cyan">
           Select Tip %
         </label>
         <div
@@ -216,17 +216,19 @@ const BillForm = ({
             />
             50%
           </label>
-          <input
-            type="number"
-            name="tip"
-            id="tip"
-            min="0"
-            placeholder="Custom"
-            value={isCustomTip ? tip : ""}
-            onChange={handleCustomTip}
-            onKeyDown={blockInvalidTipChar}
-            className="rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg"
-          />
+          <label htmlFor="custom-tip">
+            <input
+              type="number"
+              id="custom-tip"
+              name="tip"
+              min="0"
+              placeholder="Custom"
+              value={isCustomTip ? tip : ""}
+              onChange={handleCustomTip}
+              onKeyDown={blockInvalidTipChar}
+              className="rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg w-full"
+            />
+          </label>
         </div>
       </div>
       <div id="people-section">
@@ -235,7 +237,6 @@ const BillForm = ({
             Number of People
           </label>
           <p id="error" className="text-red-400">
-            {/* NEXT UP: ERROR HANDLING */}
             {showPeopleError && "Can't be zero"}
           </p>
         </div>
