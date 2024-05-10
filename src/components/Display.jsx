@@ -6,6 +6,8 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
       currency: "USD",
     }).format(amt);
 
+  // TODO: round display amounts to 2 decimal places
+
   return (
     <div
       id="display"
