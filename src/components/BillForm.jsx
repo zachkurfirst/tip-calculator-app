@@ -3,10 +3,10 @@ import dollarIcon from "../assets/icon-dollar.svg";
 import personIcon from "../assets/icon-person.svg";
 
 const BillForm = ({
-  billAmt,
-  setBillAmt,
-  showBillAmtError,
-  setShowBillAmtError,
+  bill,
+  setBill,
+  showBillError,
+  setShowBillError,
   isTipSelected, // ?: maybe use this state to unselect tip if click again or remove
   setIsTipSelected,
   tip,
@@ -19,7 +19,7 @@ const BillForm = ({
   setShowPeopleError,
 }) => {
   // Event handler for bill input field
-  const handleBillAmtInput = (e) => {
+  const handleBillInput = (e) => {
     const input = e.target.value;
     // console.log(input);
     // regex to prevent input of more than 2 decimal places
@@ -27,13 +27,13 @@ const BillForm = ({
     // .test() method: compare regex with input and return boolean
     if (regex.test(input)) {
       if (input > 0) {
-        setBillAmt(+input);
+        setBill(+input);
       } else {
-        setBillAmt(input);
+        setBill(input);
       }
-      setShowBillAmtError(false);
+      setShowBillError(false);
     } else {
-      setShowBillAmtError(true);
+      setShowBillError(true);
     }
   };
 
@@ -105,14 +105,17 @@ const BillForm = ({
     ["e", "E", "+", "-", "."].includes(e.key) && e.preventDefault();
 
   return (
-    <div id="bill-form" className="flex w-full flex-col gap-8 sm:w-[48%]">
+    <div
+      id="bill-form"
+      className="select-highlight flex w-full flex-col gap-8 sm:w-[48%]"
+    >
       <div id="bill-section">
         <div id="bill-label" className="flex justify-between text-sm">
           <label htmlFor="bill" className=" text-dark-grayish-cyan">
             Bill
           </label>
           <p id="error" className="text-red-400">
-            {showBillAmtError && "Only 2 decimal places"}
+            {showBillError && "Only 2 decimal places"}
           </p>
         </div>
         <div
@@ -131,9 +134,9 @@ const BillForm = ({
             min="0"
             step=".01"
             placeholder="0"
-            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showBillAmtError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
-            value={billAmt}
-            onChange={handleBillAmtInput}
+            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showBillError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
+            value={bill}
+            onChange={handleBillInput}
             onKeyDown={blockInvalidBillChar}
           />
         </div>
@@ -148,7 +151,7 @@ const BillForm = ({
         >
           <label
             htmlFor="tip1"
-            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -163,7 +166,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip2"
-            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -178,7 +181,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip3"
-            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -193,7 +196,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip4"
-            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -208,7 +211,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip5"
-            className="cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +13,19 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
+@layer components {
+  .select-highlight {
+    @apply selection:bg-strong-cyan selection:text-very-dark-cyan;
+  }
+  .select-highlight-reverse {
+    @apply selection:bg-very-dark-cyan selection:text-strong-cyan;
+  }
+}
+
+@layer utilities {
+  /* custom ulitily classes */
+}
