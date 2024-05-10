@@ -12,7 +12,7 @@ const App = () => {
   const [showBillError, setShowBillError] = useState(false);
 
   const [tip, setTip] = useState("");
-  const [isTipSelected, setIsTipSelected] = useState(false);
+  // const [isTipSelected, setIsTipSelected] = useState(false);
   const [isCustomTip, setIsCustomTip] = useState(false);
 
   const [people, setPeople] = useState("");
@@ -63,8 +63,8 @@ const App = () => {
             setShowBillError={setShowBillError}
             tip={tip}
             setTip={setTip}
-            isTipSelected={isTipSelected}
-            setIsTipSelected={setIsTipSelected}
+            // isTipSelected={isTipSelected}
+            // setIsTipSelected={setIsTipSelected}
             isCustomTip={isCustomTip}
             setIsCustomTip={setIsCustomTip}
             people={people}

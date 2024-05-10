@@ -7,8 +7,8 @@ const BillForm = ({
   setBill,
   showBillError,
   setShowBillError,
-  isTipSelected, // ?: maybe use this state to unselect tip if click again or remove
-  setIsTipSelected,
+  // isTipSelected, // ?: maybe use this state to unselect tip if click again or remove
+  // setIsTipSelected,
   tip,
   setTip,
   isCustomTip,
@@ -47,7 +47,7 @@ const BillForm = ({
     setTip(+e.target.value);
     // console.log('tip:', tip)
     setIsCustomTip(false);
-    setIsTipSelected(true);
+    // setIsTipSelected(true);
   };
 
   const handleCustomTip = (e) => {
@@ -56,7 +56,7 @@ const BillForm = ({
     if (input === "") {
       setTip("");
       setIsCustomTip(false);
-      setIsTipSelected(false);
+      // setIsTipSelected(false);
     } else {
       if (
         input === "5" ||
@@ -67,11 +67,11 @@ const BillForm = ({
       ) {
         console.log("This tip value exists!");
         setIsCustomTip(true);
-        setIsTipSelected(true);
+        // setIsTipSelected(true);
         setTip(+e.target.value);
       } else {
         setIsCustomTip(true);
-        setIsTipSelected(false);
+        // setIsTipSelected(false);
         setTip(+e.target.value);
       }
     }
@@ -263,7 +263,7 @@ const BillForm = ({
             id="people"
             placeholder="0"
             min="1"
-            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan invalid:ring-red-400 focus:outline-none focus:ring-2 focus:ring-strong-cyan ${showPeopleError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
+            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showPeopleError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
             value={people}
             onChange={handlePeopleInput}
             onKeyDown={blockInvalidPeopleChar}
