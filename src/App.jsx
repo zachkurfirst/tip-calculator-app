@@ -50,11 +50,11 @@ const App = () => {
         <img
           src={logo}
           alt="Splitter logo"
-          className="my-8 sm:mb-8 sm:mt-0 selection:bg-strong-cyan"
+          className="selection:bg-strong-cyan"
         />
         <div
           id="white-container"
-          className="flex max-w-full flex-wrap justify-center gap-8 rounded-3xl bg-white p-8 shadow-md sm:mx-8 sm:max-w-screen-md sm:justify-evenly sm:gap-4 sm:p-6 mb-6"
+          className="my-4 flex max-w-full flex-wrap justify-center gap-8 rounded-3xl bg-white p-8 shadow-md sm:mx-8 sm:max-w-screen-md sm:justify-evenly sm:gap-4 sm:p-6"
         >
           <BillForm
             bill={bill}
