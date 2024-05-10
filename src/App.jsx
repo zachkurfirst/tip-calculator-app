@@ -50,7 +50,7 @@ const App = () => {
         <img
           src={logo}
           alt="Splitter logo"
-          className="mt-12 selection:bg-strong-cyan"
+          className="pt-12 selection:bg-strong-cyan"
         />
         <div
           id="white-container"
