@@ -46,15 +46,15 @@ const App = () => {
 
   return (
     <>
-      <main className="mb-10 flex flex-grow flex-col items-center gap-12">
+      <main className="flex flex-grow flex-col items-center justify-center">
         <img
           src={logo}
           alt="Splitter logo"
-          className="pt-12 selection:bg-strong-cyan"
+          className="my-8 sm:mb-8 sm:mt-0 selection:bg-strong-cyan"
         />
         <div
           id="white-container"
-          className="flex max-w-full flex-wrap justify-center gap-8 rounded-3xl bg-white p-8 shadow-md sm:mx-8 sm:max-w-screen-md sm:justify-evenly sm:gap-4 sm:p-6"
+          className="flex max-w-full flex-wrap justify-center gap-8 rounded-3xl bg-white p-8 shadow-md sm:mx-8 sm:max-w-screen-md sm:justify-evenly sm:gap-4 sm:p-6 mb-6"
         >
           <BillForm
             bill={bill}
