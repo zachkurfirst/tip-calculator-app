@@ -7,8 +7,6 @@ const BillForm = ({
   setBill,
   showBillError,
   setShowBillError,
-  // isTipSelected, // ?: maybe use this state to unselect tip if click again or remove
-  // setIsTipSelected,
   tip,
   setTip,
   isCustomTip,
@@ -18,18 +16,18 @@ const BillForm = ({
   showPeopleError,
   setShowPeopleError,
 }) => {
-  // Event handler for bill input field
+  // Event handler for bill input
   const handleBillInput = (e) => {
     const input = e.target.value;
-    // console.log(input);
     // regex to prevent input of more than 2 decimal places
     const regex = /^(\d*\.{0,1}\d{0,2}$)/;
     // .test() method: compare regex with input and return boolean
     if (regex.test(input)) {
-      if (input > 0) {
-        setBill(+input);
-      } else {
+      // account for empty string and delete input
+      if (input === "") {
         setBill(input);
+      } else {
+        setBill(+input);
       }
       setShowBillError(false);
     } else {
@@ -37,70 +35,61 @@ const BillForm = ({
     }
   };
 
-  // Prevent input of certain characters
+  // Prevent input of certain characters in bill input
   const blockInvalidBillChar = (e) =>
     ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
-  // Event handler for tip selection
-  const handleSelectedTip = (e) => {
-    console.log(e.target.value);
-    setTip(+e.target.value);
-    // console.log('tip:', tip)
-    setIsCustomTip(false);
-    // setIsTipSelected(true);
+  // Event handler for tip click
+  const handleTipClick = (e) => {
+    // if tip is selected, unselect
+    if (+e.target.value === tip) {
+      setTip("");
+      e.target.parentElement.classList.remove("hover:bg-light-grayish-cyan");
+      e.target.parentElement.classList.remove("hover:text-very-dark-cyan");
+    }
   };
 
+  // Event handler for new tip selection
+  const handleSelectedTip = (e) => {
+    setTip(+e.target.value);
+    setIsCustomTip(false);
+  };
+
+  // Event handler for custom tip
   const handleCustomTip = (e) => {
     const input = e.target.value;
     // account for empty string and delete input
     if (input === "") {
-      setTip("");
+      setTip(input);
       setIsCustomTip(false);
-      // setIsTipSelected(false);
     } else {
-      if (
-        input === "5" ||
-        input === "10" ||
-        input === "15" ||
-        input === "25" ||
-        input === "50"
-      ) {
-        console.log("This tip value exists!");
-        setIsCustomTip(true);
-        // setIsTipSelected(true);
-        setTip(+e.target.value);
-      } else {
-        setIsCustomTip(true);
-        // setIsTipSelected(false);
-        setTip(+e.target.value);
-      }
+      setIsCustomTip(true);
+      setTip(+input);
     }
   };
 
-  // Prevent input of certain characters
+  // Prevent input of certain characters in custom tip input
   const blockInvalidTipChar = (e) =>
     ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
-  // Event handler for people input field
+  // Event handler for people input
   const handlePeopleInput = (e) => {
     const input = e.target.value;
-    console.log(input);
     // account for empty string and delete input
     if (input === "") {
-      setPeople("");
+      setPeople(input);
       setShowPeopleError(false);
     } else {
-      const input = +e.target.value;
+      setPeople(+input);
       if (input === 0) {
-        setPeople(input);
         setShowPeopleError(true);
       } else {
-        setPeople(input);
         setShowPeopleError(false);
       }
     }
   };
 
+  // Prevent input of certain characters in people input
   const blockInvalidPeopleChar = (e) =>
     ["e", "E", "+", "-", "."].includes(e.key) && e.preventDefault();
 
@@ -159,6 +148,7 @@ const BillForm = ({
               name="tip"
               value="5"
               checked={tip === 5}
+              onClick={handleTipClick}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -174,6 +164,7 @@ const BillForm = ({
               name="tip"
               value="10"
               checked={tip === 10}
+              onClick={handleTipClick}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -189,6 +180,7 @@ const BillForm = ({
               name="tip"
               value="15"
               checked={tip === 15}
+              onClick={handleTipClick}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -204,6 +196,7 @@ const BillForm = ({
               name="tip"
               value="25"
               checked={tip === 25}
+              onClick={handleTipClick}
               onChange={handleSelectedTip}
               className="hidden"
             />
@@ -219,6 +212,7 @@ const BillForm = ({
               name="tip"
               value="50"
               checked={tip === 50}
+              onClick={handleTipClick}
               onChange={handleSelectedTip}
               className="hidden"
             />

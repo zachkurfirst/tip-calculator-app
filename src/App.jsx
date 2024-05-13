@@ -12,7 +12,6 @@ const App = () => {
   const [showBillError, setShowBillError] = useState(false);
 
   const [tip, setTip] = useState("");
-  // const [isTipSelected, setIsTipSelected] = useState(false);
   const [isCustomTip, setIsCustomTip] = useState(false);
 
   const [people, setPeople] = useState("");
@@ -28,20 +27,18 @@ const App = () => {
     setPeople("");
   };
 
-  // run useEffect when any of the 3 form values update
+  // useEffect to update display totals
   useEffect(() => {
-    console.log("render app");
-    console.table({ bill, tip, people });
-    // if entries exist for bill and people
+    // update if entries exist for bill and people
     if (bill > 0 && people > 0) {
       setTipPP((bill * (tip / 100)) / people);
       setTotalPP(bill / people + tipPP);
-      console.log({ tipPP, totalPP });
     } else if (bill == 0 || people == 0) {
+      // reset display totals
       setTipPP(0);
       setTotalPP(0);
-      console.log("reset display totals");
     }
+    console.table({ bill, tip, people, tipPP, totalPP });
   }, [bill, people, tip, tipPP, totalPP]);
 
   return (
@@ -50,7 +47,7 @@ const App = () => {
         <img
           src={logo}
           alt="Splitter logo"
-          className="my-12 selection:bg-strong-cyan sm:mb-6 sm:mt-0"
+          className=" py-6 selection:bg-strong-cyan sm:pt-0"
         />
         <div
           id="white-container"
@@ -63,8 +60,6 @@ const App = () => {
             setShowBillError={setShowBillError}
             tip={tip}
             setTip={setTip}
-            // isTipSelected={isTipSelected}
-            // setIsTipSelected={setIsTipSelected}
             isCustomTip={isCustomTip}
             setIsCustomTip={setIsCustomTip}
             people={people}
