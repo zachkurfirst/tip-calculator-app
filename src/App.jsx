@@ -44,11 +44,13 @@ const App = () => {
   return (
     <>
       <main className="flex flex-grow flex-col items-center justify-center">
-        <img
-          src={logo}
-          alt="Splitter logo"
-          className=" py-6 selection:bg-strong-cyan sm:pt-0"
-        />
+        <h1>
+          <img
+            src={logo}
+            alt="Splitter logo"
+            className=" py-6 selection:bg-strong-cyan sm:pt-0"
+          />
+        </h1>
         <div
           id="white-container"
           className="mb-4 flex max-w-full flex-wrap justify-center gap-8 rounded-3xl bg-white p-8 shadow-md sm:mx-8 sm:max-w-screen-md sm:justify-evenly sm:gap-4 sm:p-6"

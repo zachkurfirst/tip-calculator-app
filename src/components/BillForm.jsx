@@ -103,7 +103,7 @@ const BillForm = ({
           <label htmlFor="bill" className=" text-dark-grayish-cyan">
             Bill
           </label>
-          <p id="error" className="text-red-400">
+          <p id="bill-error" className="text-red-400">
             {showBillError && "Only 2 decimal places"}
           </p>
         </div>
@@ -238,7 +238,7 @@ const BillForm = ({
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
-          <p id="error" className="text-red-400">
+          <p id="people-error" className="text-red-400">
             {showPeopleError && "Can't be zero"}
           </p>
         </div>
