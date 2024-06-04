@@ -99,7 +99,7 @@ const BillForm = ({
       className="select-highlight flex w-full flex-col gap-8 sm:w-[48%]"
     >
       <div id="bill-section">
-        <div id="bill-label" className="flex justify-between text-sm">
+        <div id="bill-label" className="flex justify-between text-lg">
           <label htmlFor="bill" className=" text-dark-grayish-cyan">
             Bill
           </label>
@@ -123,7 +123,7 @@ const BillForm = ({
             min="0"
             step=".01"
             placeholder="0"
-            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showBillError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
+            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-2xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showBillError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
             value={bill}
             onChange={handleBillInput}
             onKeyDown={blockInvalidBillChar}
@@ -131,16 +131,16 @@ const BillForm = ({
         </div>
       </div>
       <div id="tip-section">
-        <label htmlFor="tip1" className="text-sm text-dark-grayish-cyan">
+        <label htmlFor="tip1" className="text-lg text-dark-grayish-cyan">
           Select Tip %
         </label>
         <div
           id="tip-choices"
-          className="mt-2 grid grid-cols-2 gap-3 text-center text-lg text-very-light-grayish-cyan sm:grid-cols-3"
+          className="mt-2 grid grid-cols-2 gap-3 text-center text-2xl text-very-light-grayish-cyan sm:grid-cols-3"
         >
           <label
             htmlFor="tip1"
-            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-2 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -156,7 +156,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip2"
-            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-2 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -172,7 +172,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip3"
-            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-2 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -188,7 +188,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip4"
-            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-2 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -204,7 +204,7 @@ const BillForm = ({
           </label>
           <label
             htmlFor="tip5"
-            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-1 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
+            className="has-[:checked]:select-highlight-reverse cursor-pointer rounded-md bg-very-dark-cyan py-2 hover:bg-light-grayish-cyan hover:text-very-dark-cyan has-[:checked]:bg-strong-cyan has-[:checked]:text-very-dark-cyan"
           >
             <input
               type="radio"
@@ -228,13 +228,13 @@ const BillForm = ({
               value={isCustomTip ? tip : ""}
               onChange={handleCustomTip}
               onKeyDown={blockInvalidTipChar}
-              className="w-full rounded-md bg-very-light-grayish-cyan px-4 py-1 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan sm:placeholder:text-sm md:placeholder:text-lg"
+              className="w-full rounded-md bg-very-light-grayish-cyan px-4 py-2 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan placeholder:text-2xl sm:placeholder:text-sm md:placeholder:text-lg lg:placeholder:text-2xl"
             />
           </label>
         </div>
       </div>
       <div id="people-section">
-        <div id="people-label" className="flex justify-between text-sm">
+        <div id="people-label" className="flex justify-between text-lg">
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
@@ -257,7 +257,7 @@ const BillForm = ({
             id="people"
             placeholder="0"
             min="1"
-            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showPeopleError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
+            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-2xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showPeopleError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
             value={people}
             onChange={handlePeopleInput}
             onKeyDown={blockInvalidPeopleChar}
