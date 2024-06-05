@@ -99,7 +99,7 @@ const BillForm = ({
       className="select-highlight flex w-full flex-col gap-8 sm:w-[48%]"
     >
       <div id="bill-section">
-        <div id="bill-label" className="flex justify-between text-sm sm:text-lg">
+        <div id="bill-label" className="flex justify-between text-sm md:text-lg">
           <label htmlFor="bill" className="text-dark-grayish-cyan">
             Bill
           </label>
@@ -131,12 +131,12 @@ const BillForm = ({
         </div>
       </div>
       <div id="tip-section">
-        <label htmlFor="tip1" className="text-sm sm:text-lg text-dark-grayish-cyan">
+        <label htmlFor="tip1" className="text-sm md:text-lg text-dark-grayish-cyan">
           Select Tip %
         </label>
         <div
           id="tip-choices"
-          className="mt-2 grid grid-cols-2 gap-3 text-center text-xl sm:text-2xl text-very-light-grayish-cyan sm:grid-cols-3"
+          className="mt-2 grid grid-cols-2 gap-3 text-center text-xl md:text-2xl text-very-light-grayish-cyan sm:grid-cols-3"
         >
           <label
             htmlFor="tip1"
@@ -234,7 +234,7 @@ const BillForm = ({
         </div>
       </div>
       <div id="people-section">
-        <div id="people-label" className="flex justify-between text-sm sm:text-lg">
+        <div id="people-label" className="flex justify-between text-sm md:text-lg">
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>

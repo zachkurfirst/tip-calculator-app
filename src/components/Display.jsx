@@ -17,17 +17,17 @@ const Display = ({ tipPP, totalPP, handleResetBtn }) => {
       >
         <div id="display-tip-row" className="flex items-center justify-between">
           <div id="display-tip-labels">
-            <p className="text-sm sm:text-lg text-white">Tip Amount</p>
-            <p className="text-xs sm:text-sm text-grayish-cyan">/ person</p>
+            <p className="text-sm md:text-lg text-white">Tip Amount</p>
+            <p className="text-xs md:text-sm text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-3xl sm:text-4xl text-strong-cyan">{USD(tipPP)}</p>
+          <p className="text-3xl md:text-4xl text-strong-cyan">{USD(tipPP)}</p>
         </div>
         <div id="display-total-row" className="flex items-center justify-between">
           <div id="display-total-labels">
-            <p className="text-sm sm:text-lg text-white">Total</p>
-            <p className="text-xs sm:text-sm text-grayish-cyan">/ person</p>
+            <p className="text-sm md:text-lg text-white">Total</p>
+            <p className="text-xs md:text-sm text-grayish-cyan">/ person</p>
           </div>
-          <p className="text-3xl sm:text-4xl text-strong-cyan">{USD(totalPP)}</p>
+          <p className="text-3xl md:text-4xl text-strong-cyan">{USD(totalPP)}</p>
         </div>
       </div>
       <button
