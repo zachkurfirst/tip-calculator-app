@@ -80,8 +80,8 @@ const BillForm = ({
       setPeople(input);
       setShowPeopleError(false);
     } else {
-      setPeople(+input);
-      if (input === 0) {
+      setPeople(input);
+      if (input == 0) {
         setShowPeopleError(true);
       } else {
         setShowPeopleError(false);
@@ -99,8 +99,8 @@ const BillForm = ({
       className="select-highlight flex w-full flex-col gap-8 sm:w-[48%]"
     >
       <div id="bill-section">
-        <div id="bill-label" className="flex justify-between text-lg">
-          <label htmlFor="bill" className=" text-dark-grayish-cyan">
+        <div id="bill-label" className="flex justify-between text-sm sm:text-lg">
+          <label htmlFor="bill" className="text-dark-grayish-cyan">
             Bill
           </label>
           <p id="bill-error" className="text-red-400">
@@ -123,7 +123,7 @@ const BillForm = ({
             min="0"
             step=".01"
             placeholder="0"
-            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-2xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showBillError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
+            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl sm:text-2xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showBillError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
             value={bill}
             onChange={handleBillInput}
             onKeyDown={blockInvalidBillChar}
@@ -131,12 +131,12 @@ const BillForm = ({
         </div>
       </div>
       <div id="tip-section">
-        <label htmlFor="tip1" className="text-lg text-dark-grayish-cyan">
+        <label htmlFor="tip1" className="text-sm sm:text-lg text-dark-grayish-cyan">
           Select Tip %
         </label>
         <div
           id="tip-choices"
-          className="mt-2 grid grid-cols-2 gap-3 text-center text-2xl text-very-light-grayish-cyan sm:grid-cols-3"
+          className="mt-2 grid grid-cols-2 gap-3 text-center text-xl sm:text-2xl text-very-light-grayish-cyan sm:grid-cols-3"
         >
           <label
             htmlFor="tip1"
@@ -228,13 +228,13 @@ const BillForm = ({
               value={isCustomTip ? tip : ""}
               onChange={handleCustomTip}
               onKeyDown={blockInvalidTipChar}
-              className="w-full rounded-md bg-very-light-grayish-cyan px-4 py-2 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan placeholder:text-2xl sm:placeholder:text-sm md:placeholder:text-lg lg:placeholder:text-2xl"
+              className="w-full rounded-md bg-very-light-grayish-cyan px-4 py-2 text-right text-very-dark-cyan placeholder:text-center placeholder:text-grayish-cyan focus:outline-none focus:ring-2 focus:ring-strong-cyan placeholder:text-xl sm:placeholder:text-sm md:placeholder:text-lg lg:placeholder:text-2xl"
             />
           </label>
         </div>
       </div>
       <div id="people-section">
-        <div id="people-label" className="flex justify-between text-lg">
+        <div id="people-label" className="flex justify-between text-sm sm:text-lg">
           <label htmlFor="people" className="text-dark-grayish-cyan">
             Number of People
           </label>
@@ -257,7 +257,7 @@ const BillForm = ({
             id="people"
             placeholder="0"
             min="1"
-            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-2xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showPeopleError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
+            className={`w-full rounded-sm bg-very-light-grayish-cyan py-1 pr-4 text-right text-xl sm:text-2xl text-very-dark-cyan placeholder:text-grayish-cyan focus:outline-none focus:ring-2 ${showPeopleError ? "ring-2 ring-red-400 focus:ring-red-400" : "focus:ring-strong-cyan"}`}
             value={people}
             onChange={handlePeopleInput}
             onKeyDown={blockInvalidPeopleChar}
