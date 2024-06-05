@@ -118,6 +118,7 @@ const BillForm = ({
           />
           <input
             type="number"
+            inputMode="decimal"
             name="bill"
             id="bill"
             min="0"
@@ -221,6 +222,7 @@ const BillForm = ({
           <label htmlFor="custom-tip">
             <input
               type="number"
+              inputMode="decimal"
               id="custom-tip"
               name="tip"
               min="0"
@@ -253,6 +255,7 @@ const BillForm = ({
           />
           <input
             type="number"
+            inputMode="numeric"
             name="people"
             id="people"
             placeholder="0"
